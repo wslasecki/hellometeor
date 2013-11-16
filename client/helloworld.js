@@ -8,16 +8,16 @@ $(document).ready( function() {
 
 // HIDDEN BOX //
 Template.hiddenbox.values = function() {
-//alert("calling")
-
 //  colorArray = ColorColl.find({}, {}).fetch();
-
-
 //  for( i = 0; i < colorArray.length; i++ ) {
 //    console.log(colorArray[i]["color"]);
 //  }
 
   return ColorColl.find();
+}
+
+Template.value.val = function() {
+  return "Color: " + this["color"];
 }
 
 // SharedBox //
