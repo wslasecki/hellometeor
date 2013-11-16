@@ -7,7 +7,7 @@ $(document).ready( function() {
 
 
 // HIDDEN BOX //
-Template.hiddenbox.val = function() {
+Template.hiddenbox.values = function() {
 //alert("calling")
 
 //  colorArray = ColorColl.find({}, {}).fetch();
@@ -26,7 +26,7 @@ Template.sharedbox.events({
   'click #buttonShare' : function () {
     if (typeof console !== 'undefined') {
       console.log("Inserting")
-      SharedColl.insert({content: "WELCOME2"});
+      SharedColl.insert({content: "Welcome 2 the machine."});
     }
   },
 
