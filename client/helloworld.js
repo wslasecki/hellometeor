@@ -10,12 +10,14 @@ $(document).ready( function() {
 Template.hiddenbox.val = function() {
 //alert("calling")
 
-  colorArray = ColorColl.find({}, {}).fetch();
+//  colorArray = ColorColl.find({}, {}).fetch();
 
-  for( i = 0; i < colorArray.length; i++ ) {
-    console.log(colorArray[i]["color"]);
-  }
 
+//  for( i = 0; i < colorArray.length; i++ ) {
+//    console.log(colorArray[i]["color"]);
+//  }
+
+  return ColorColl.find();
 }
 
 // SharedBox //
