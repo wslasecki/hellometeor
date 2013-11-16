@@ -4,8 +4,9 @@
  *
  */
 
+var myColor = null;
 
-// function for getting URL parameters
+// Function for getting URL parameters. (c) Jeff Bigham
 function gup(name) {
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";
@@ -17,17 +18,42 @@ function gup(name) {
             return unescape(results[1]);
 }
 
+// Main on-ready load
 $(document).ready( function() {
-  alert(gup("workerId"))
+  //alert(gup("workerId"))
 
+  //alert(ColorColl.find().fetch()[0]["color"]);
+
+  $('#name-val').html(gup("workerId"));
+  //$('#name-container').css('color', '#F0F');
 
 });
 
 
 // HIDDEN BOX //
 Template.hiddenbox.values = function() {
+  pullCursor = ColorColl.find();
+  retVal = pullCursor;
 
-  return ColorColl.find();
+  pullArray = pullCursor.fetch();
+
+  randIdx = Math.floor(Math.random() * pullArray.length);
+  if( pullArray[randIdx] != null ) {
+    //alert("Selection: " + randIdx + " == " + pullArray[randIdx]["color"])
+    selectedElem = pullArray[randIdx];
+    selectedColor = selectedElem["color"];
+    $('#name-container').css('color', selectedColor);
+
+    alert("pre-rmv: " +  ColorColl.find().fetch().length)
+    //ColorColl.remove({color: selectedColor});
+    ColorColl.remove(selectedElem._id);
+    alert("post-rmv: " + ColorColl.find().fetch().length)
+
+    SharedColl.insert({color: selectedColor, worker: gup("workerId")});
+  }
+
+
+  return retVal;
 }
 
 Template.value.val = function() {
