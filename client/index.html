@@ -1,0 +1,38 @@
+<head>
+  <title>helloworld</title>
+</head>
+
+<body>
+  <div id"hdiv">
+    {{> hiddenbox}}
+  </div>
+
+  <div id="shared-div">
+    {{> sharedbox}}
+  </div>
+
+  <div id="local-div">
+  </div>
+
+  <div id="content">
+    {{> hello}}
+  </div>
+</body>
+
+<template name="hello">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input id='button1' type="button" value="Click" />
+  <input id='button2' type="button" value="Clock" />
+</template>
+
+<template name="sharedbox">
+  {{text}}
+  <input id='buttonShare' type="button" value="Share!" />
+  <input id='buttonFetch' type="button" value="Fetch!" />
+</template>
+
+<template name="hiddenbox">
+  {{val}}
+</template>
+
