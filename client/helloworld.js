@@ -1,6 +1,5 @@
 $(document).ready( function() {
-  //alert("Hey")
-
+  alert(gup("workerId"))
 
 
 });
