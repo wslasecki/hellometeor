@@ -1,3 +1,22 @@
+/*
+ * Main js file for HelloMeteor project.
+ * (c) W.S. Lasecki, 2013
+ *
+ */
+
+
+// function for getting URL parameters
+function gup(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.href);
+    if(results == null)
+            return "";
+    else
+            return unescape(results[1]);
+}
+
 $(document).ready( function() {
   alert(gup("workerId"))
 
@@ -7,10 +26,6 @@ $(document).ready( function() {
 
 // HIDDEN BOX //
 Template.hiddenbox.values = function() {
-//  colorArray = ColorColl.find({}, {}).fetch();
-//  for( i = 0; i < colorArray.length; i++ ) {
-//    console.log(colorArray[i]["color"]);
-//  }
 
   return ColorColl.find();
 }
